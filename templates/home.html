@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Интернет-магазин ювелирных изделий - Профиль</title>
+  
+  <!-- Стили здесь -->
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  header {
+    background-color: #fff;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    width: 150px;
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-left: 20px;
+  }
+  
+  nav ul li:first-child {
+    margin-left: 0;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0062cc;
+  }
+  
+  h1 {
+    margin: 0;
+    font-size: 36px;
+    color: #333;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    flex-basis: 20%;
+    text-align: center;
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  footer {
+    background-color: #f5f5f5;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    bottom: 0;
+    width: 100%;
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .profile-section {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .profile-section h2 {
+    margin-top: 0;
+  }
+  
+  .profile-section p {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  
+  .profile-section ul {
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .profile-section ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .profile-section h3 {
+    margin-top: 20px;
+  }
+  
+  .profile-section a {
+    display: block;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #007bff;
+  }
+  
+  .profile-section a:hover {
+    text-decoration: underline;
+  }
+.profile-section form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-section form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.profile-section form input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section form button {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 200px;
+}
+.sidebar {
+  float: left;
+  width: 200px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.sidebar h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 5px;
+}
+
+.sidebar li a {
+  display: block;
+  padding: 10px 15px;
+  background-color: #ffc107;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar li a:hover {
+  background-color: #ff9800;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#" class="logo">Logo</a>
+    <nav>
+      <ul>
+        <li><a href="/">Главная</a></li>
+
+      </ul>
+    </nav>
+    <div>    
+     
+      {{ gg | safe}}
+      <a href="/logout" class="btn-primary">Выйти</a>
+
+
+    </div>
+
+  </header>
+  
+  <main>
+    <div class="profile-section">
+
+<div class="sidebar">
+  <div class="sidebar-box">
+    <h3>Меню</h3>
+    <ul>
+      {{ meny | safe}}
+    </ul>
+  </div>
+</div>
+<div>
+      <h2>Мой профиль</h2>
+      <p><strong>Роль:</strong> {{ role }}</p>
+      <p><strong>Логин:</strong> {{ name }}</p>
+
+
+
+    <h3>Смена пароля</h3>
+    <form method="post">
+      <label for="oldPassword">Текущий пароль</label>
+      <input type="password" id="oldPassword" name="oldPassword" required>
+      <br>
+      <label for="newPassword">Новый пароль</label>
+      <input type="password" id="newPassword" name="newPassword" required>
+      <br>
+      <label for="confirmPassword">Подтвердите новый пароль</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required>
+      <br>
+      <button class="btn-primary" type="submit">Сохранить</button>
+    </form>
+    </div>
+
+    </div>
